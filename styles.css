@@ -1,0 +1,15 @@
+#backgroundImage {
+  background-image: url("images/iPhone.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: gray;
+  background-position: center;
+}
+
+.results{
+  font-size: 12px;
+  color:black;
+  margin: 5px;
+  /*padding:5px;*/
+  background-color: white;
+}
