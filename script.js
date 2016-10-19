@@ -1,15 +1,19 @@
 $('document').ready(function()
 {
+  function scrollWin() {
+      window.scrollBy(0, 700);
+  }
+
   function getSongFromUserInput(inputValueId){
     return document.getElementById(inputValueId).value;
-}
+  }
 
   function displayToPage(displayAreaId, data){
     var releventInfo = [];
     for(var i = 0; i < data.results.length; i++){
-      releventInfo.push( 'Artist Name:' + data.results[i].artistName + ' ' + 'Collection Name:' + data.results[i].collectionName + ' ' + 'Track Name:' + data.results[i].trackName + ' ');
+      releventInfo.push('Artist:' + ' ' + data.results[i].artistName + ';' + ' ' + 'Album:' + ' ' + data.results[i].collectionName + ';' + ' ' + 'Track:' + ' ' + data.results[i].trackName + '.');
     }
-    document.getElementById(displayAreaId).innerHTML = releventInfo.join();
+    document.getElementById(displayAreaId).innerHTML = releventInfo.join("<div>");
   }
 
   function getSong(songInput)
@@ -20,9 +24,9 @@ $('document').ready(function()
         dataType: 'jsonp'
     }).done(function(data)
     {
-      displayToPage('displayArea', data);
       console.log(data);
-    }).fail(function(error)
+      displayToPage('displayArea', data);
+      }).fail(function(error)
     {
       console.log("An error occured!");
     });
@@ -30,5 +34,6 @@ $('document').ready(function()
   $("#button1").click(function()
   {
     getSong(getSongFromUserInput('songSearch'));
+    setTimeout(function() {scrollWin(); }, 1000);
   });
 });

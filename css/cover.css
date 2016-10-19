@@ -63,6 +63,8 @@ body {
  * Header
  */
 .masthead-brand {
+  background: rgba(128, 128, 128, 0.5);
+  color: white;
   margin-top: 10px;
   margin-bottom: 10px;
 }
