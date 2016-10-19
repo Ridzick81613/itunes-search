@@ -11,9 +11,9 @@ $('document').ready(function()
   function displayToPage(displayAreaId, data){
     var releventInfo = [];
     for(var i = 0; i < data.results.length; i++){
-      releventInfo.push('Artist:' + ' ' + data.results[i].artistName + ';' + ' ' + 'Album:' + ' ' + data.results[i].collectionName + ';' + ' ' + 'Track:' + ' ' + data.results[i].trackName + '.');
+      releventInfo.push("<hr>" + "Artist:" + " " + data.results[i].artistName + ";" + " " + "Album:" + " " + data.results[i].collectionName + ";" + " " + "Track:" + " " + data.results[i].trackName  + ";" + "<br><br>" + "Album Art:" + " " + "<img src=" + data.results[i].artworkUrl100 + ">" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "Song Snippet:" + " " + "<audio controls name='media'>" + "<source src=" + data.results[i].previewUrl + "> type='audio/mp4'" + "</audio>" + "<br>" + "<hr>");
     }
-    document.getElementById(displayAreaId).innerHTML = releventInfo.join("<div>");
+    document.getElementById(displayAreaId).innerHTML = releventInfo.join("<br>");
   }
 
   function getSong(songInput)
